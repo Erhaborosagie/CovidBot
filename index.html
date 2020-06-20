@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.1/css/all.css">
     <style>
         html, body {
+            font-family: 'Roboto', sans-serif;
             height: 100%;
             margin: 0;
         }
@@ -15,11 +17,99 @@
             width: 100%;
             border: 0 solid #575a65;
         }
+
+        #message-box{
+            position: absolute;
+            top: 10px;
+            width: 100%;
+        }
+        #message-box .sent, #message-box .received{
+            width: 100%;
+
+        }
+        #message-box .sent{
+            text-align: right;
+            right: 0;
+        }
+        #message-box .received{
+            text-align: left;
+        }
+        #message-box .sent .message, #message-box .received .message{
+            max-width: 300px;
+            word-wrap: break-word;
+            display: inline-block;
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+            background-color: white;
+            padding: 15px 20px;
+            text-align: left;
+            color: #032041;
+        }
+        .icon{
+            padding: 10px 10px 10px 15px !important;
+            display: inline-block;
+            background: linear-gradient(to right, #556b2f, #7fffd4);
+            color: white;
+            border-radius: 100px;
+
+        }
+        #send-box{
+            left: 50%;
+            position: absolute;
+            bottom: 5px;
+            transform: translateX(-50%) translateY(-50%);
+            background-color: white;
+            border-radius: 100px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+            height: 50px;
+            line-height: 50px;
+            overflow: hidden;
+            width: 500px;
+        }
+        #message{
+            border: none;
+            color: #0101ab;
+            font-size: 1em;
+            font-weight: 300;
+            margin-left: 20px;
+            outline: none;
+            width: 430px;
+        }
+        #send-message{
+            cursor: pointer;
+            height: 50px;
+            position: absolute;
+            right: 0px;
+            text-align: center;
+            top: 0px;
+            width: 50px;
+        }
     </style>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="static/js/script.js"></script>
 </head>
 <body>
 <div class="container">
-    hi
+    <div id="message-box">
+        <div class="sent">
+            <div class="message">
+                Venenatis a condimentum vitae sapien pellentesque habitant morbi. Pharetra pharetra massa massa
+                ultricies mi quis. Amet commodo nulla facilisi nullam
+            </div>
+            <div class="icon"><i class="far fa-user"></i></div>
+        </div>
+        <div class="received">
+            <div class="icon"><img src="static/images/covidbot.png" alt="covidbot" style="max-width: 30px"></div>
+            <div class="message">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Leo a diam sollicitudin tempor id
+            </div>
+        </div>
+    </div>
+    <form id="send-box">
+        <input id="message" placeholder="Enter Message">
+        <button id="send-message"><i class="far fa-arrow-alt-circle-right"></i></button>
+    </form>
 </div>
 </body>
 </html>
