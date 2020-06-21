@@ -11,9 +11,9 @@ socket.on('chat-message', data =>{
 send_box.addEventListener("submit", e => {
     e.preventDefault();
     let message = input_box.value;
-    socket.emit("sent-message", message);
     input_box.value = '';
-    appendSentMessage(message, "sent")
+    appendSentMessage(message, "sent");
+    socket.emit("sent-message", message);
 });
 
 function appendSentMessage(message, transit) {
@@ -23,14 +23,14 @@ function appendSentMessage(message, transit) {
     innerMessage.classList.add("message");
     iconDiv.classList.add("icon");
     messageElement.classList.add(transit);
-    innerMessage.innerText = message;
+    innerMessage.innerHTML = message;
 
     if (transit === "sent"){
         iconDiv.innerHTML = `<i class="far fa-user"></i>`;
         messageElement.append(innerMessage);
         messageElement.append(iconDiv);
     }else {
-        iconDiv.innerHTML = `<img src="static/images/covidbot.png" alt="covidbot" style="max-width: 30px">`;
+        iconDiv.innerHTML = `<img src="static/images/covidbot.png" alt="covidbot" style="max-width: 70px">`;
         messageElement.append(iconDiv);
         messageElement.append(innerMessage);
     }

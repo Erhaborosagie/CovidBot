@@ -9,6 +9,7 @@
             font-family: 'Roboto', sans-serif;
             height: 100%;
             margin: 0;
+            background-color: #032041;
         }
         .container{
             background-color: #032041;
@@ -45,17 +46,20 @@
             text-align: left;
             color: #032041;
         }
+        #message-box .sent .icon{
+            background: linear-gradient(to right, #556b2f, #7fffd4);
+        }
         .icon{
             padding: 10px 10px 10px 15px !important;
             display: inline-block;
-            background: linear-gradient(to right, #556b2f, #7fffd4);
             color: white;
             border-radius: 100px;
 
         }
         #send-box{
             left: 50%;
-            position: absolute;
+            position: fixed;
+            z-index: 100;
             bottom: 5px;
             transform: translateX(-50%) translateY(-50%);
             background-color: white;
@@ -94,8 +98,18 @@
         <div class="received">
             <img src="static/images/covidbot.png" alt="covidbot" style="max-width: 70px">
             <div class="message">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Leo a diam sollicitudin tempor id
+                <div style="font-size: 1.5em; margin-bottom: 0; font-weight: bold"> Welcome to CovidBot</div>
+                <small>An app mimicking the WHO WhatsApp number response. For latest info, connect to WHO on whatsApp
+                    <b>+41798931892</b>
+                </small>
+                <p></p>
+                <small style="font-weight: bold">What would you like to know about coronavirus?</small>
+                <ol style="padding-left: 10px;">
+                    <li><small> <span style="font-weight: bold">LATEST</span> Numbers & cases</small></li>
+                    <li><small> <span style="font-weight: bold">PROTECT</span> Protecting yourself</small></li>
+                    <li><small> <span style="font-weight: bold">MYTHS </span> Know the facts!</small></li>
+                </ol>
+                <small>Enter any of the numbers above</small>
             </div>
         </div>
     </div>
